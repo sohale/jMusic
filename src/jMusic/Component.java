@@ -8,11 +8,7 @@ package jMusic;
  */
 abstract class Component0   implements Source    //a set of Probes that has an output
 {
-   //private 
-   //Probe probe[];                 //Input probe[]
-   //Source probe[];
-   protected //??
-   Probe probe[];
+   protected Probe probe[];
 
 
    public 
@@ -25,14 +21,7 @@ abstract class Component0   implements Source    //a set of Probes that has an o
             return probe[i];     //returns the first
       }
       throw new Error("There is no Probe named \""+name+"\" .");
-      //return null;
    }
-
-   //public abstract
-   //public double output();  //should be cached!
-   
-   //protected double sampleRate()...	it may be a function of time? yes.
-   
 }
 
 /**
@@ -59,11 +48,7 @@ public abstract class Component extends Component0		//this generation contains B
 	{
 		probe(name).link(w,s);
 	}
-/*	static void copy(Component c)
-	{
-		Source d = c.copy();
-	}
-*/
+
 	public boolean existsProbe(String name)
 	{
 		for(int i=0;i<probe.length;i++)
@@ -71,6 +56,7 @@ public abstract class Component extends Component0		//this generation contains B
 				return true;
 		return false;
 	}
+	//Generic types were not invented back in 2000.
 	java.util.Vector properties = new java.util.Vector(0);
 	public boolean property(Object prop)
 	{
@@ -91,7 +77,7 @@ public abstract class Component extends Component0		//this generation contains B
 		return s;
 	}
 	/**
-	 * 3 Shahrivar 1379, after a very long time
+	 * 3 Shahrivar 1379 (Summer 2000), after a very long time
 	 */
 	//public String[] probeNames()
 	public String listOfNames()
