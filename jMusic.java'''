@@ -1,0 +1,127 @@
+/*
+this program makes a reverb compound component
+ */
+package jMusic;
+class jMusic
+{
+	static public Constant c(double x0)
+	{
+		return new Constant(x0);
+	}
+
+	static Component rvb()
+	{
+		Component C1 = new Comb(2);
+		Component C2 = new Comb(2);
+		Component C3 = new Comb(2);
+		Component C4 = new Comb(2);
+		Component A1 = new AllPass(2);
+		Component A2 = new AllPass(2);
+		Component mix = new Mixer(4);
+		double RVT = 2.5;
+		
+/*
+		Component rndRVT = new RANDH();
+		Component rvt = new Mixer(2);
+		rndRVT.lnk("Amplitude", c(0.100));
+		rvt.lnk("Source0",rndRVT);
+		rvt.lnk("Source1",c(RVT));
+//		Source rvt = c(RVT);
+*/
+
+		Probe rvtprobe = new Probe("TEMP!");
+		Probe inprobe = new Probe("temp?");
+
+		C1.lnk("REVERB TIME", rvtprobe );
+		C2.lnk("REVERB TIME", rvtprobe );
+		C3.lnk("REVERB TIME", rvtprobe );
+		C4.lnk("REVERB TIME", rvtprobe );
+		A1.lnk("REVERB TIME", c(5.0/1000.0) );
+		A2.lnk("REVERB TIME", c(1.7/1000.0) );
+
+		C1.lnk("LOOP TIME", c(29.7/1000.0) );
+		C2.lnk("LOOP TIME", c(37.1/1000.0) );
+		C3.lnk("LOOP TIME", c(41.1/1000.0) );
+		C4.lnk("LOOP TIME", c(43.7/1000.0) );
+		A1.lnk("LOOP TIME", c(96.83/1000.0) );
+		A2.lnk("LOOP TIME", c(32.92/1000.0) );
+
+		C1.lnk("INPUT", inprobe );
+		C2.lnk("INPUT", inprobe );
+		C3.lnk("INPUT", inprobe );
+		C4.lnk("INPUT", inprobe );
+
+		mix.lnk("Source0",C1);
+		mix.lnk("Source1",C2);
+		mix.lnk("Source2",C3);
+		mix.lnk("Source3",C4);
+
+		A1.lnk("INPUT", mix );
+		A2.lnk("INPUT", A1 );
+
+		//Component result = A2;
+
+		Component ampdown = new Amplifier();
+		ampdown.lnk("Source",A2);
+		ampdown.lnk("Amplitude", c(0.2) );
+
+		Compound reverb = new Compound(ampdown);
+		reverb.AddProbe("INPUT", inprobe );
+		reverb.AddProbe("RVT", rvtprobe );
+		
+		return reverb;
+	}
+
+	static void Build() throws Exception
+	{
+		Source time = new Timer(44100);
+
+		Probe timeProbe = new Probe("WHAT");
+		timeProbe.link(time);
+		double[][] p = {{0.001,650},{0.0045,980},{0.02,1200},{1,1300}};
+		Component sin = new SinOscilator();
+		Component adsr = new ADSR();
+		Component freql = new partialLinear(p);
+		Component freqm = new Multiplier(2);
+		//Component freqm = new Mixer(2);
+		sin.lnk("Frequency", /*freql*/freqm);
+		sin.lnk("Amplitude", adsr);
+		freql.lnk("Input", timeProbe);
+		freqm.lnk("Source0", freql);
+		adsr.lnk("Rise", c(0.0005) );
+		adsr.lnk("Duration", c(0.02) );
+		adsr.lnk("Decay", c(0.01));
+		adsr.lnk("Time", timeProbe );
+
+		Compound pip = new Compound(sin);
+		pip.AddProbe("Time", timeProbe );
+		pip.AddProbe("Note", freqm.probe("Source1") );
+
+		//pip.probe("Time").isDefault();
+
+		MultiOutputComponent melody = new MusicBox0( "[2[2[2[2.+.+.+.].++.+++++].++.].++.][2[2[2[2.++.++.++.++]++.++.++]+++++++++.+++++++++++++.]+++++++++++++++++++++++++++++++.++++++++++++++++++++++++++++++++++.]" ,0,false);
+		Component frq = new NoteFrequency();
+		//frq.lnk("Note",melody);
+		pip.lnk("Time",melody.outputHandle("NoteTime"));
+		pip.lnk("Note",/*frq*/melody);
+
+		pip.lnk("Note",c(1));
+
+		Component reverb = rvb();
+
+		reverb.lnk("RVT", /*c(1.5)*/time );
+		reverb.lnk("INPUT",pip);
+
+		Component result = reverb;
+
+		new TreeViewer( result , new java.io.FileOutputStream("C:\\jSiglog.txt"));
+		
+		Recorder r = new Recorder( result );
+		r.doRecord("C:\\OUT.RAW",8);
+	}
+
+	public static void main(String args[]) throws Exception
+	{
+		Build();
+	}
+}
