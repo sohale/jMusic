@@ -34,5 +34,8 @@ class JMusicMain
 
 		Component out = c;
 		new Recorder(out).doRecord16("C:\\OUT.raw",1);
+		
+		Plotter p=new Plotter(out, 0.01/4 );
+		p.start();
 	}
 }

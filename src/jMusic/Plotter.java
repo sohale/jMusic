@@ -3,6 +3,8 @@ package jMusic;
 import java.awt.*;
 import java.io.*;
 
+import javax.swing.JFrame;
+
 /**
  * A Java (realtime?) wave monitor.
  * first "new", then addSource(src),start to show, then stop to disapear.
@@ -15,7 +17,7 @@ import java.io.*;
  * constructor(source,scale)
  */
 
-final class Plotter extends Frame
+final class Plotter extends JFrame
 {
 	Source source[] = new Source[1];
 	Color plotColor[] = {Color.white,Color.red,Color.blue,Color.yellow,Color.green,Color.pink,Color.cyan,Color.gray,Color.gray,Color.orange,Color.magenta};
@@ -61,7 +63,9 @@ final class Plotter extends Frame
 		);
 		setBackground(Color.black);
 		setSize(320,200);
-		show();
+		//show();
+		setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	void stop()
 	{
@@ -87,7 +91,10 @@ final class Plotter extends Frame
 	}
 	public void paint(Graphics g)
 	{
-		Rectangle rect = g.getClipBounds();	//g.getClipRect();
+		
+		Rectangle rect = this.getBounds();
+		g.clearRect(rect.x, rect.y,rect.width, rect.height);
+		//Rectangle rect = g.getClipBounds();	//g.getClipRect();
 		System.out.println(""+scale);
 		Timer.reset_();
 		int x=0;
