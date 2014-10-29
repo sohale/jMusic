@@ -1,7 +1,7 @@
 package jMusic;
 
 //import jMusic.Component;		//not "import Component;"
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /**
  * used in MusicBox0
@@ -94,7 +94,7 @@ import jMusic.components.St;
  *		[1]="isOn"=is on. (later=velocity.)
  */
 final	//?
-class MusicBox0 extends MultiOutputComponent implements St				//jMusic.Component
+class MusicBox0 extends MultiOutputComponent implements Resettable				//jMusic.Component
 {
 	//double[]	tune	= new double[60*12];
 	//int[]		key		= new int[60*7];

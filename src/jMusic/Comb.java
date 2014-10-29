@@ -1,5 +1,5 @@
 package jMusic;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 /**
  * Simple echo (COMB)
  * "LOOP TIME"		= "Delay"="t"
@@ -7,7 +7,7 @@ import jMusic.components.St;
  * "INPUT"
  * constructor(maximum_loop_time)
  */
-class Comb extends Component implements St
+class Comb extends Component implements Resettable
 	//from SimpleDelay
 {
 	private int Input=0,Time=1,Delay=2,RevT=3;

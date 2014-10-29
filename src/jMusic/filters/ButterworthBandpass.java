@@ -4,7 +4,7 @@ import jMusic.Component;
 import jMusic.Probe;
 import jMusic.Source;
 import jMusic.Timer;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /**
  * Butterworth band-pass filter
@@ -12,7 +12,7 @@ import jMusic.components.St;
  */
 class ButterworthBandpass extends 
 //ButterworthTypeFilter 
-Component implements St
+Component implements Resettable
 {
 	protected int in=0,f0=1,BW=2;
 	//protected int BW=2;

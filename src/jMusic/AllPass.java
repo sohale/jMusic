@@ -1,11 +1,11 @@
 package jMusic;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /**
  * All-pass network echo
  * see COMB. all probes are like COMB
  */
-class AllPass extends Component implements St
+class AllPass extends Component implements Resettable
 	//from SimpleDelay
 {
 	private int Input=0,Time=1,Delay=2,RevT=3;

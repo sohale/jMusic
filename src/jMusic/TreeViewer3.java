@@ -81,7 +81,7 @@ class TreeViewer3 extends Frame
 		else if( s instanceof TemporaryOutput )
 		{
 			TemporaryOutput t = (TemporaryOutput)s;
-			print(			prefix+t.name()+" from "+t,gr);	//multi output
+			print(	prefix+t.name()+" from "+t,gr);	//multi output
 			//expands only if main output...
 			if(!expanded.contains(t.master))
 				trace((t).master,								prefix,gr);
@@ -92,6 +92,6 @@ class TreeViewer3 extends Frame
 			trace((Component)s,									prefix+"",gr); //or " "
 		}
 		else
-			print(									prefix+""+s,gr);
+			print(	prefix+""+s,gr);
 	}
 }

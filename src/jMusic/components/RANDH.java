@@ -11,7 +11,7 @@ import jMusic.Timer;
  * see @RANDH_
  * ([fR],[Amplitude],[Time])
  */
-class RANDH extends Component implements St
+class RANDH extends Component implements Resettable
 {
 	protected int fR=0,Amp=1,Time=2;
 	protected int probes = 3;

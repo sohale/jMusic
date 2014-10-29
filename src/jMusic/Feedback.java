@@ -91,7 +91,7 @@ class Feedback extends MultiOutputComponent implements Se
 		return feedbackBuffer[fbl];
 	}
 	/**
-	 * HEART of feedback
+	 * HEART of the feedback
 	 */
 	public double output()
 	{

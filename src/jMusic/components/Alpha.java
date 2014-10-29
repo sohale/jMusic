@@ -12,7 +12,7 @@ import jMusic.Timer;
  * (has simple feedback)
  * it' beh. is depended to sample rate
  */
-class Alpha extends Component implements St
+class Alpha extends Component implements Resettable
 {
 	Timer timer;
 	Alpha()

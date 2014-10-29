@@ -1,7 +1,7 @@
 package jMusic.filters;
 
 import jMusic.Component;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 class ButterworthBandreject //extends ButterworthTypeFilter
 extends ButterworthBandpass

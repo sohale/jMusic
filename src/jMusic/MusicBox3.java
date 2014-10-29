@@ -1,5 +1,5 @@
 package jMusic;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /*
 	. => *
@@ -42,7 +42,7 @@ import jMusic.components.St;
  * 
  * use   ",,,'''."	for lengthy resty notes
  */
-class MusicBox3 extends MultiOutputComponent implements St
+class MusicBox3 extends MultiOutputComponent implements Resettable
 {
 	final boolean silent = true;
 

@@ -1,5 +1,5 @@
 package jMusic;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /*
 	. => *
@@ -45,7 +45,7 @@ import jMusic.components.St;
  * 
  * outputs={"NoteTime", "isOn", "n" "v" "T" "p" "pqrstuvwxyzabcd" ...}
  */
-class MusicBox2 extends MultiOutputComponent implements St
+class MusicBox2 extends MultiOutputComponent implements Resettable
 {
 	class Stack
 	{

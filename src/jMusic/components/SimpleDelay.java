@@ -13,7 +13,7 @@ import jMusic.Timer;
  * Delay <= const maxDelay
  * maxDelay is in seconds.
  */
-public final class SimpleDelay extends Component implements St	  //1:01xm sat 16aban77
+public final class SimpleDelay extends Component implements Resettable	  //1:01xm sat 16aban77
 {
 	private int Input=0,Time=1,Delay=2;
 	private int probes = 3;

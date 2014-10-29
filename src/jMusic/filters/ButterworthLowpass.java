@@ -4,9 +4,9 @@ import jMusic.Component;
 import jMusic.Probe;
 import jMusic.Source;
 import jMusic.Timer;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
-public class ButterworthLowpass extends Component implements St
+public class ButterworthLowpass extends Component implements Resettable
 //abstract class ButterworthLowpass 
   	//extends ButterworthTypeFilter
 {

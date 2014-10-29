@@ -1,7 +1,7 @@
 package jMusic.oscillators;
 import jMusic.*;
 import jMusic.components.Constant;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 
 /*final class Oscilator extends Component{	public double output()	{		return Math.sin( 			probe[Freq].output() *			probe[Time].output() *			Math.PI*2.0			+			probe[Phase].output() / Math.PI*2.0 *			Math.PI*2.0			) * probe[Amp].output();	  //return sin( probe[1].output() * probe[0].output() + probe[2].output() ) * probe[3].output();}}*/
@@ -11,7 +11,7 @@ import jMusic.components.St;
  *     out=integral( dt * freq ) + "Phase"
  * ([Time=],Frequency,[Phase=0])
  */
-public class Phase extends Component implements St //thursday6esfand77 7:21pm.	see JMusic9.java for previous spec.
+public class Phase extends Component implements Resettable //thursday6esfand77 7:21pm.	see JMusic9.java for previous spec.
 {
 	//no Amplitude.	because it only makes curroptions.
 	//but MAX may be resonable

@@ -1,5 +1,5 @@
 package jMusic;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 /**
  * a never-ending story.
@@ -10,7 +10,7 @@ import jMusic.components.St;
  * Timer.reset must? be done before all other reset methods of St Components
  * usage: new MANY timers, then reset, then tick and sample.
  */
-public final class Timer implements Source,St /*?*/         // Source + some Commands (Discrete/Eventy)
+public final class Timer implements Source,Resettable /*?*/         // Source + some Commands (Discrete/Eventy)
 {
 	//previous usage: (not now) probe("Time").link( new Timer(Timer.sampleFrequency()) );
 

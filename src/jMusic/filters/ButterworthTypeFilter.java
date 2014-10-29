@@ -4,9 +4,9 @@ import jMusic.Component;
 import jMusic.Probe;
 import jMusic.Source;
 import jMusic.Timer;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
-abstract class ButterworthTypeFilterDontUse extends Component implements St
+abstract class ButterworthTypeFilterDontUse extends Component implements Resettable
 {
 	protected int in=0,fc=1;
 	ButterworthTypeFilterDontUse()

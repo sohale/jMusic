@@ -9,7 +9,7 @@ import jMusic.Timer;
  * see SimpleDelay
  * it can handle non integer delay samples
  */
-public final class AntiAliasDelay extends Component implements St
+public final class AntiAliasDelay extends Component implements Resettable
 {
 	private int Input=0,Time=1,Delay=2;
 	private int probes = 3;

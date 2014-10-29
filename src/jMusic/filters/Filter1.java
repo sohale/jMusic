@@ -4,7 +4,7 @@ import jMusic.Component;
 import jMusic.Probe;
 import jMusic.Source;
 import jMusic.Timer;
-import jMusic.components.St;
+import jMusic.components.Resettable;
 
 
 
@@ -13,7 +13,7 @@ import jMusic.components.St;
  * This filter is better for noisy inputs and standard for that book.
  * page 212 of the book CM
  */
-class Filter1 extends Component implements St //page 211,212 for section 6.3
+class Filter1 extends Component implements Resettable //page 211,212 for section 6.3
 {
 	protected int in=0,f0=1,BW=2;
 	Filter1()
