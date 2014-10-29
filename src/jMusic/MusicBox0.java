@@ -1,6 +1,7 @@
 package jMusic;
 
-import jMusic.Component;		//not "import Component;"
+//import jMusic.Component;		//not "import Component;"
+import jMusic.components.St;
 
 /**
  * used in MusicBox0

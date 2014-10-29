@@ -1,7 +1,11 @@
+
+package jMusic;
+
+import jMusic.components.Se;
+
 //Miraculus Feedback
 //LEFT: test for equality and redundancy
 
-package jMusic;
 /**
  * This is sensitive to number of Samples got from it
  * several feedback lines.

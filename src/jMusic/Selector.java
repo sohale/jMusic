@@ -1,4 +1,5 @@
 package jMusic;
+import jMusic.components.RA;
 /**
  * Select,Switch,Morph,"Switcher",Multiplex
  * (Source0,Source1, ... ,Select)

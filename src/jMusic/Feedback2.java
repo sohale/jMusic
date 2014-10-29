@@ -1,4 +1,6 @@
 package jMusic;
+import jMusic.components.Se;
+
 /**
  * main sample must be sampled
  * no input line

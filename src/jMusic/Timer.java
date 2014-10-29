@@ -1,4 +1,5 @@
 package jMusic;
+import jMusic.components.St;
 
 /**
  * a never-ending story.
@@ -9,19 +10,19 @@ package jMusic;
  * Timer.reset must? be done before all other reset methods of St Components
  * usage: new MANY timers, then reset, then tick and sample.
  */
-final class Timer implements Source,St /*?*/         // Source + some Commands (Discrete/Eventy)
+public final class Timer implements Source,St /*?*/         // Source + some Commands (Discrete/Eventy)
 {
 	//previous usage: (not now) probe("Time").link( new Timer(Timer.sampleFrequency()) );
 
    static long tick;
    static double dt = 1.0/22050.0;	//for no specifying it
 		//was: dt = 22050.0; !!!
-   Timer(double samplingFrequency)//double dt
+   public Timer(double samplingFrequency)//double dt
    {
       this.dt = 1/samplingFrequency;//dt;
       reset();
    }
-   Timer()
+   public Timer()
    {
       reset();
    }
@@ -36,13 +37,19 @@ final class Timer implements Source,St /*?*/         // Source + some Commands (
    {
       tick = 0;
    }
-   static void tick()
+   public static void tick()
    {
       tick++;
    }
-   final static double sampleFrequency()  //Resolution
+   //todo: remove this. Use getSF instead
+   private final static double sampleFrequency()  //Resolution
    {
       return 1/dt;
+   }
+   public double getSamplingFrequency(){
+	   //returs astatic member
+	   //warning: weak design: static is returned here:
+	   return sampleFrequency();
    }
 /* static double dT()
    {

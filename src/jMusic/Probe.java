@@ -20,7 +20,7 @@ package jMusic;
  * the links are browse/trace-able bottom-up (and top-down) by Component class.
  */
 
-class Probe implements Source	//(constant) Weighted version
+public class Probe implements Source	//(constant) Weighted version
 {
 	String name;
 	Source source=null;
@@ -29,7 +29,10 @@ class Probe implements Source	//(constant) Weighted version
 	boolean defaultSource = true;
 	double weight;
 
-	Probe(String name)
+	public Source getSource(){
+		return source;
+	}
+	public Probe(String name)
 	{
 		this.name = name;
 	}
@@ -40,16 +43,17 @@ class Probe implements Source	//(constant) Weighted version
 		weight = w;
 		defaultSource = false;
     }
-	void link(Source source)
+	public void link(Source source)
     {
 		link(1,source);
     }
-	//only for use in components initializers
-	void isDefault()
+	
+	//only to be used in components initialisers
+	public void isDefault()
     {
 		defaultSource = true;
     }
-	void linkD(Source source)
+	public void linkD(Source source)
     {
 		link(1,source);
 		isDefault();
@@ -76,47 +80,3 @@ class Probe implements Source	//(constant) Weighted version
 		//Source scp = source.copy();...
 	}
 }
-
-//not used
-//dont use it
-//never use it
-class Probe00 implements Source //!! :x  8x
-{
-
-	/*private*/ String name;
-	/*private*/ Source source=null;
-	Probe00(String name)
-	{
-		this.name = name;
-	}
-	final public Source copy(){return null;}
-	void link(Source source)
-    {
-        //if(this.source != null)
-            //System.out.println("Warning: changing previous connection");
-        this.source = source;
-    }
-	public double output()
-	//{return value();}
-	//	private final double value()	//many has been changed. why?
-	{
-		if(source==null)
-		{
-			throw new Error(name+" Must be linked.");
-			//return 0.0;
-		}
-		else
-			return source.output();
-   }
-
-/*
-   String getName() //for Browsing (8.9.77)
-   {
-        return new String(name);
-   }
-   Source getSource() //(or 'GetLink') for Browsing (8.9.77)
-   {
-        return source;
-   }
-*/
-};
