@@ -1,0 +1,44 @@
+
+//not used
+//dont use it
+//never use it
+class Probe00 implements Source //!! :x  8x
+{
+
+	/*private*/ String name;
+	/*private*/ Source source=null;
+	Probe00(String name)
+	{
+		this.name = name;
+	}
+	final public Source copy(){return null;}
+	void link(Source source)
+    {
+        //if(this.source != null)
+            //System.out.println("Warning: changing previous connection");
+        this.source = source;
+    }
+	public double output()
+	//{return value();}
+	//	private final double value()	//many has been changed. why?
+	{
+		if(source==null)
+		{
+			throw new Error(name+" Must be linked.");
+			//return 0.0;
+		}
+		else
+			return source.output();
+   }
+
+/*
+   String getName() //for Browsing (8.9.77)
+   {
+        return new String(name);
+   }
+   Source getSource() //(or 'GetLink') for Browsing (8.9.77)
+   {
+        return source;
+   }
+*/
+};
