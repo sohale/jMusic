@@ -33,7 +33,7 @@ class JMusicMain
 		c.lnk("LOOP TIME",new Constant(0.2));
 
 		Component out = c;
-		new Recorder(out).doRecord16("C:\\OUT.raw",1);
+		new Recorder(out).doRecord16("OUT.raw",10);
 		
 		Plotter p=new Plotter(out, 0.01/4 );
 		p.start();
