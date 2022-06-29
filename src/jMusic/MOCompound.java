@@ -1,5 +1,32 @@
 package jMusic;
 
+/**
+A "Compound Component" is a multi-output component
+that has multiple inputs (`Probe`s) and multiple outputs.
+
+It creates a (black-box) `module`. (that can be instantiated and cloned).
+
+As in multi-output components (`MultiOutputComponent`), the function `.output(int)` can be used to fetch one output sample.
+
+The constructor should create the necessary `Component`s, wire their inputs and outputs together, and wire the exposed I/O s to `this`.
+
+Outputs:
+
+There is a main output.
+
+* `.output()`
+* `.output(port_id)`
+
+Inputs:
+As in any componentm there are multiple components:
+`c.probe(name).link(s);`
+or use the shortcut:
+`c.lnk(name,s)`
+
+todo:
+creation parameters, (slow) parameters (exposed pararameters), exposed I/O.
+
+*/
 public class MOCompound extends MultiOutputComponent
 {
 	Source[] source;
