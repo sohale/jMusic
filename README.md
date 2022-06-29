@@ -11,5 +11,7 @@ For the original [summer 1999 version](https://github.com/sohale/jMusic/tree/as-
 Structure:
 https://docs.google.com/presentation/d/1g1bCBDmHZhPk7cXdbi13iPy7Bf795LBN8tILLNhgtpI/edit?usp=sharing
 
+![svg]( https://drive.google.com/uc?export=view&id=1g1bCBDmHZhPk7cXdbi13iPy7Bf795LBN8tILLNhgtpI   "jMusic classes)" )
+
 See Also:
 * @sohale/ **[mehr32](https://github.com/sohale/mehr32)**
