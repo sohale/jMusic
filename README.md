@@ -18,5 +18,12 @@ Structure:
 
 ![image]( https://drive.google.com/uc?export=view&id=1FVnb_EE_Ed-fHh6bQRfH3-_lgcz18evU   "jMusic classes" )
 
+* A `Source` is whatever that has an `.output()`
+* A `Probe` is a Source that can be wired (linked) to another `Source`. It is the wiring (flexible runtime: wiring-time).
+* A `Component` is a rewirable Source, that is, a Source with multiple Probes in it.
+* `Probe` can be directly cascaded linked in a serial way (eg `MOCompound`).
+
+* wiring-time, constructor-time, etc.
+
 See Also:
 * @sohale/ **[mehr32](https://github.com/sohale/mehr32)**
