@@ -23,7 +23,7 @@ Structure:
 * A `Component` is a rewirable Source, that is, a Source with multiple Probes in it.
 * `Probe` can be directly cascaded linked in a serial way (eg `MOCompound`).
 
-* wiring-time, constructor-time, generation time, etc.
+* wiring-time, constructor-time, generation time.
 
 See Also:
 * @sohale/ **[mehr32](https://github.com/sohale/mehr32)**
